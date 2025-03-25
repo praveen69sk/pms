@@ -3,8 +3,8 @@ POST http://localhost:4000/patients
 Content-Type: application/json
 
 {
-  "name": "Sakshara Praveen Kalawad",
-  "email": "sakshu59pk@gmail.com",
+  "name": "Updated Kafka Test",
+  "email": "Kafka@gmail.com",
   "address": "Hubli",
   "dateOfBirth": "1988-09-25",
   "registeredDate": "2025-01-22"
