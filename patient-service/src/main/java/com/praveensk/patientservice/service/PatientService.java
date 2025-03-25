@@ -6,6 +6,7 @@ import com.praveensk.patientservice.dto.PatientResponseDto;
 import com.praveensk.patientservice.exception.EmailAlreadyExistsException;
 import com.praveensk.patientservice.exception.PatientNotFoundException;
 import com.praveensk.patientservice.grpc.BillingServiceGrpcClient;
+import com.praveensk.patientservice.kafka.KafkaProducer;
 import com.praveensk.patientservice.model.Patient;
 import com.praveensk.patientservice.repository.PatientRepository;
 import org.springframework.stereotype.Service;
@@ -19,10 +20,12 @@ public class PatientService {
 
     private final PatientRepository patientRepository;
     private final BillingServiceGrpcClient billingServiceGrpcClient;
+    private final KafkaProducer kafkaProducer;
 
-    public PatientService(PatientRepository patientRepository, BillingServiceGrpcClient billingServiceGrpcClient) {
+    public PatientService(PatientRepository patientRepository, BillingServiceGrpcClient billingServiceGrpcClient, KafkaProducer kafkaProducer) {
         this.patientRepository = patientRepository;
         this.billingServiceGrpcClient = billingServiceGrpcClient;
+        this.kafkaProducer = kafkaProducer;
     }
 
     public List<PatientResponseDto> getAllPatients() {
@@ -37,6 +40,8 @@ public class PatientService {
         Patient patient = patientRepository.save(PatientMapper.toEntity(patientRequestDto));
 
         billingServiceGrpcClient.craeteBilling(patient.getId().toString(), patient.getName(), patient.getEmail());
+
+        kafkaProducer.sendEvent(patient);
 
         return PatientMapper.toDto(patient);
     }
