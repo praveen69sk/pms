@@ -7,6 +7,10 @@
         <option name="envVars">
           <list>
             <DockerEnvVarImpl>
+              <option name="name" value="JWT_SECRET" />
+              <option name="value" value="f9f24c8cd80f3b4027400b62d793a8610ed45b12d55a7eab581a1b267c20492219a4c166c3297cb2e6bd18c377035e462cccf31e0ac3681311e8a2660ac9d731570a5be939ab56691fdf1ee511c73dd678c1f2dd9228e02574c1d1ab553377c70ce06c440962ec4dbcad6328469d8cd5884823d9d73fd6397f3ff37741b424daa40bad5941099e2ae8e1e66ec44ba556c8637f2d52e01e958c1c9e8a02a4cc38f9abfa66e77d3dc5c9c639c579a83e28de311df79914f13251c911bc58c842e6c467200601efa7cc8a7105b7d0a638588b3ff752162d44ce292e70c234384f8a73f0fba9eac87541f9eae3ed64644e9f22e5c2d8af83615b15f069a543e87e16" />
+            </DockerEnvVarImpl>
+            <DockerEnvVarImpl>
               <option name="name" value="SPRING_DATASOURCE_PASSWORD" />
               <option name="value" value="password" />
             </DockerEnvVarImpl>
@@ -25,10 +29,6 @@
             <DockerEnvVarImpl>
               <option name="name" value="SPRING_SQL_INIT_MODE" />
               <option name="value" value="always" />
-            </DockerEnvVarImpl>
-            <DockerEnvVarImpl>
-              <option name="name" value="JWT_SECRET" />
-              <option name="value" value="Y22fwkdceidfhhnjkf93eaoMkU=" />
             </DockerEnvVarImpl>
           </list>
         </option>
