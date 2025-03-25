@@ -3,8 +3,8 @@ POST http://localhost:4000/patients
 Content-Type: application/json
 
 {
-  "name": "Praven S Kalawad",
-  "email": "praveen59sk@gmail.com",
+  "name": "Kavita Praveen Kalawad",
+  "email": "kavi59pk@gmail.com",
   "address": "Hubli",
   "dateOfBirth": "1988-09-25",
   "registeredDate": "2025-01-22"
